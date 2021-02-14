@@ -1,4 +1,29 @@
 {
+  "User": [
+    {
+      "id": "cd601e64-0262-4878-804b-535062d6c093",
+      "email": "t.malahieude@gmail.com",
+      "password": "$2b$10$s6LUD3U1cZs/f3ZojBCpSu.TZjK7/uE7R8y9SufkCMN8UAF2qujjO",
+      "type": "client"
+    },
+    {
+      "id": "b0f8c890-f2fe-47e4-85f1-14fe96eed9fa",
+      "email": "timothe@malahieude.net",
+      "password": "$2b$10$s6LUD3U1cZs/f3ZojBCpSu.TZjK7/uE7R8y9SufkCMN8UAF2qujjO",
+      "type": "farmer"
+    }
+  ],
+  "Client": [
+    {
+      "id": "cd601e64-0262-4878-804b-535062d6c093",
+      "wallet_amount_xrp": 100
+    }
+  ],
+  "Farmer": [
+    {
+      "id": "b0f8c890-f2fe-47e4-85f1-14fe96eed9fa"
+    }
+  ],
   "Offer": [
     {
       "id": "17be7349-da44-49c0-8c7e-aff662a83473",

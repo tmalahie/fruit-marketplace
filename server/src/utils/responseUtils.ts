@@ -2,7 +2,7 @@ import { Response } from "express";
 import Model, { DefaultColumns } from "../utils/db/model";
 
 const sendData = (res: Response, data: any, statusCode: number = 200) =>
-  res.status(statusCode).json({ data });
+  res.status(statusCode).json(data);
 const sendHTML = (res: Response, data: string) =>
   res
     .status(200)
@@ -15,7 +15,7 @@ const sendCreated = (EntityModel: Model<any>) => (
   options?: any
 ) =>
   EntityModel.findById(id, options).then((data) =>
-    res.status(201).json({ status: "CREATED", data })
+    res.status(201).json(data)
   );
 
 const sendUpdated = (EntityModel: Model<any>) => (
@@ -24,7 +24,7 @@ const sendUpdated = (EntityModel: Model<any>) => (
   options?: any
 ) =>
   EntityModel.findById(id, options).then((data) =>
-    res.json({ status: "UPDATED", data })
+    res.json(data)
   );
 
 const sendDeleted = (res: Response, id: string) => res.status(204).json();

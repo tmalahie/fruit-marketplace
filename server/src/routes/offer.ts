@@ -6,7 +6,6 @@ import { OfferModel as Model } from "../models/offer";
 
 import {
   checkOneOfRequired,
-  checkBody,
   nonEmptyBodyCheck,
 } from "../utils/routeUtils";
 
@@ -17,7 +16,9 @@ import {
 const router = express.Router();
 
 router.get("/", [validation], tc(controller.getAll));
+router.get("/me", [validation], tc(controller.getMyOffers));
 router.get("/:id", [idParamCheck("id"), validation], tc(controller.get));
+router.put("/:id/buy", [idParamCheck("id"), validation], tc(controller.buy));
 
 router.post(
   "/",

@@ -1,7 +1,7 @@
 import './MarketPlace.css';
 import LoggedInUser from '../../components/LoggedInUser/LoggedInUser'
-import { useState, useEffect } from "react";
-import { getData } from "../../utils/apiUtils"
+import { useState, useEffect, useCallback } from "react";
+import { getData, putData } from "../../utils/apiUtils"
 import { Button, Typography } from '@material-ui/core';
 import OfferView from '../../components/OfferView/OfferView';
 
@@ -9,17 +9,29 @@ export const PERIOD = "week1";
 
 function MarketPlace({ user }) {
     let [currentOffers, setCurrentOffers] = useState(null);
+    const [, updateState] = useState();
+    const forceUpdate = useCallback(() => updateState({} as any), []);
+
+    async function loadData() {
+        const newUser = await getData(`/users/me`);
+        localStorage.setItem("user", JSON.stringify(newUser));
+        Object.assign(user, newUser);
+        const offers = await getData("/offers?period=" + PERIOD);
+        setCurrentOffers(offers);
+    }
 
     useEffect(() => {
-        async function getOffers() {
-            const offers = await getData("/offers?period=" + PERIOD);
-            setCurrentOffers(offers);
-        }
-        getOffers();
+        loadData();
     }, [])
 
-    function handleBuy() {
-        alert(0);
+    function handleBuy(offer) {
+        setCurrentOffers(null);
+        async function buyOffer() {
+            await putData(`/offers/${offer.id}/buy`);
+            await loadData();
+            forceUpdate();
+        }
+        buyOffer();
     }
 
     return <div className="MarketPlace">
@@ -33,9 +45,9 @@ function MarketPlace({ user }) {
             {(currentOffers.length > 0) && <div>
                 {currentOffers.map(offer => <div>
                     <OfferView offer={offer} />
-                    <div className="offerActions">
-                        <Button variant="contained" size="small" color="primary" onClick={handleBuy}>Buy</Button>
-                    </div>
+                    {(offer.fruit_total_price_xrp <= user.wallet_amount_xrp) && <div className="offerActions">
+                        <Button variant="contained" size="small" color="primary" onClick={() => handleBuy(offer)}>Buy</Button>
+                    </div>}
                     <br />
                 </div>)}
             </div>}

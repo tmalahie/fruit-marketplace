@@ -2,8 +2,10 @@ import * as Knex from "knex";
 import { createTableFromConfig } from "../../utils/db/migration";
 import dbTypes from "../../utils/db/types";
 import { Offer } from "../../models/offer";
-import knex from "../../utils/db/knex";
 import { GlobalLog } from "../../models/global_log";
+import { User } from "../../models/user";
+import { Client } from "../../models/client";
+import { Farmer } from "../../models/farmer";
 
 type TableDescription<T> = {
   name: string;
@@ -24,12 +26,65 @@ type TableDescription<T> = {
   }[];
 };
 
+const USER_TABLE: TableDescription<User> = {
+  name: "user",
+  columns: {
+    email: {
+      type: dbTypes.STRING,
+      nullable: false,
+    },
+    password: {
+      type: dbTypes.STRING,
+      nullable: false,
+    },
+    type: {
+      type: dbTypes.STRING,
+      nullable: false,
+    }
+  },
+}
+const CLIENT_TABLE: TableDescription<Client> = {
+  name: "client",
+  columns: {
+    id: {
+      foreign: "user.id",
+      nullable: false,
+    },
+    wallet_amount_xrp: {
+      type: dbTypes.FLOAT,
+      nullable: false,
+      default: 0
+    },
+  },
+  indexes: [
+    {
+      columns: ["id"],
+      unique: true,
+    },
+  ]
+}
+const FARMER_TABLE: TableDescription<Farmer> = {
+  name: "farmer",
+  columns: {
+    id: {
+      foreign: "user.id",
+      nullable: false,
+    },
+  },
+  indexes: [
+    {
+      columns: ["id"],
+      unique: true,
+    },
+  ]
+}
+
 const OFFER_TABLE: TableDescription<Offer> = {
   name: "offer",
   columns: {
     farmer_id: {
       type: dbTypes.UUID,
-      //foreign: "user.id",
+      foreign: "farmer.id",
       nullable: false,
     },
     fruit_name: {
@@ -91,6 +146,9 @@ export async function up(knex: Knex): Promise<any> {
   if (process.env.FLUSHONLY) return;
   await down(knex);
 
+  await createTableFromConfig(knex, USER_TABLE);
+  await createTableFromConfig(knex, CLIENT_TABLE);
+  await createTableFromConfig(knex, FARMER_TABLE);
   await createTableFromConfig(knex, OFFER_TABLE);
   await createTableFromConfig(knex, GLOBAL_LOG);
 }
@@ -106,7 +164,7 @@ export async function down(knex: Knex): Promise<any> {
   await Promise.all(
     tableList
       .filter((result) => !result["tablename"].startsWith("knex_migrations"))
-      .map((result) => knex.raw(sqlOp + " " + result["tablename"] + ";"))
+      .map((result) => knex.raw(sqlOp + " \"" + result["tablename"] + "\" CASCADE;"))
   );
   await knex.raw("SET session_replication_role = 'origin';");
 }
