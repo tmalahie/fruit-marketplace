@@ -1,0 +1,15 @@
+export default {
+  BOOL: "boolean",
+  UUID: "uuid",
+  POLYGON: ["specificType", "POLYGON"],
+  JSON: "json",
+  STRING: "string",
+  TEXT: ["specificType", "TEXT"],
+  TS: "timestamp",
+  DATE: "date",
+  INT: "integer",
+  INCREMENTS: "increments",
+  FLOAT: "float",
+  DOUBLE: ["specificType", "DOUBLE"],
+  BIGINT: "bigInteger",
+};

@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+.App h4 {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+.MainButtons button {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.MainButtons .MuiSvgIcon-root {
+  margin-right: 0.2em;
+}

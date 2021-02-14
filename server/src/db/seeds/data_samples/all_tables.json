@@ -1,0 +1,12 @@
+{
+  "Offer": [
+    {
+      "id": "17be7349-da44-49c0-8c7e-aff662a83473",
+      "farmer_id": "b0f8c890-f2fe-47e4-85f1-14fe96eed9fa",
+      "fruit_name": "Banana",
+      "fruit_quantity": 3,
+      "fruit_unit_price_eur": 2.6,
+      "period": "week1"
+    }
+  ]
+}

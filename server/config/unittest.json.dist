@@ -1,0 +1,23 @@
+{
+  "db_host": "localhost",
+  "db_name": "fruitmarketplace",
+  "db_user": "root",
+  "db_password": "",
+  "db_port": 3306,
+  "log": {
+    "level": "debug",
+    "console": {
+      "enabled": true
+    },
+    "file": {
+      "enabled": false,
+      "filename": "/var/log/fruitmarketplace.log",
+      "size": 1048576,
+      "files": 10
+    }
+  },
+  "server": {
+    "port": 8000,
+    "threads": 2
+  }
+}
