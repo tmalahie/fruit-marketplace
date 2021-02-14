@@ -1,0 +1,10 @@
+.Home h4 {
+    margin-bottom: 2em;
+}
+.MainButtons .MuiButton-root {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+.MainButtons .MuiSvgIcon-root {
+    margin-right: 0.2em;
+}

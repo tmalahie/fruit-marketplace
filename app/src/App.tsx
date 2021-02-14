@@ -1,29 +1,39 @@
 import './App.css';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import ShopIcon from '@material-ui/icons/Shop';
-import PersonIcon from '@material-ui/icons/Person';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className="title">
-            Fruit MarketPlace
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Typography variant="h4" className="title">
-        Welcome to the fruit marketplace.
-      </Typography>
-      <div className="MainButtons">
-        <Button variant="contained" size="large"><ShopIcon /> Log in as farmer</Button>
-        <Button variant="contained" color="primary" size="large"><PersonIcon /> Log in as client</Button>
+    <Router>
+      <div className="App">
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" className="title">
+              Fruit MarketPlace
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <div className="page">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/login/:type">
+              <Login />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

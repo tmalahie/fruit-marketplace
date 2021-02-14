@@ -1,0 +1,6 @@
+.Login form input {
+    width: 300px;
+}
+.Login form button[type="submit"] {
+    width: 300px;
+}
