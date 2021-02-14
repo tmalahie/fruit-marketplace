@@ -11,10 +11,18 @@ function OfferView({ offer }) {
                 <div>Fruit quantity:</div>
                 <div>{offer.fruit_quantity}</div>
             </div>
-            <div>
+            {offer.fruit_unit_price_eur && <div>
                 <div>Fruit unit price:</div>
-                <div>{offer.fruit_unit_price_eur}</div>
-            </div>
+                <div>{offer.fruit_unit_price_eur} €</div>
+            </div>}
+            {offer.fruit_unit_price_xrp && <div>
+                <div>Fruit unit price:</div>
+                <div>{offer.fruit_unit_price_xrp} XRP</div>
+            </div>}
+            {offer.fruit_total_price_xrp && <div>
+                <div>Fruit total price:</div>
+                <div>{offer.fruit_total_price_xrp} XRP</div>
+            </div>}
         </div>
     </div>
 }

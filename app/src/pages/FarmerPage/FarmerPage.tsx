@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { useState, useEffect } from "react";
 import { getData, postData, putData, deleteData } from "../../utils/apiUtils"
 import { Button } from '@material-ui/core';
+import { PERIOD } from "../MarketPlace/MarketPlace";
 
 function FarmerPage({ user }) {
     let [currentOffers, setCurrentOffers] = useState(null);
@@ -23,7 +24,10 @@ function FarmerPage({ user }) {
         setCurrentOffers(null);
         async function createOffer() {
             const createdOffer = await postData("/offers", {
-                body: newOffer
+                body: {
+                    ...newOffer,
+                    period: PERIOD
+                }
             });
             setCurrentOffers([createdOffer]);
         }
@@ -67,7 +71,7 @@ function FarmerPage({ user }) {
             <br />
             <Typography variant="h4" className="title">
                 My offer
-                </Typography>
+            </Typography>
             {currentOffer && <>
                 {!isEditting && <OfferView offer={currentOffer} />}
                 {!isEditting && <div className="offerActions">
