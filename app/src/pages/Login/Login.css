@@ -1,6 +1,5 @@
-.Login form input {
+.MuiAlert-root, .Login form input, .Login form button[type="submit"] {
     width: 300px;
-}
-.Login form button[type="submit"] {
-    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
 }
