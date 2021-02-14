@@ -30,7 +30,7 @@ function Login() {
             });
             if (response.user) {
                 localStorage.setItem("user", JSON.stringify(response.user));
-                localStorage.setItem("token", JSON.stringify(response.token));
+                localStorage.setItem("token", response.token);
                 document.location.href = "/";
             }
             else if (response.error)

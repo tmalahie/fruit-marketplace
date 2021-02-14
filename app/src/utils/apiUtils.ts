@@ -15,29 +15,31 @@ export async function queryData(endpoint, {
         },
         body: body && JSON.stringify(body)
     });
+    if (response.status === 204)
+        return null;
     const responseJson = await response.json();
     return responseJson;
 }
 
-export async function getData(endpoint, params) {
+export async function getData(endpoint, params = {}) {
     return queryData(endpoint, {
         ...params,
         method: "GET"
     })
 }
-export async function postData(endpoint, params) {
+export async function postData(endpoint, params = {}) {
     return queryData(endpoint, {
         ...params,
         method: "POST"
     })
 }
-export async function putData(endpoint, params) {
+export async function putData(endpoint, params = {}) {
     return queryData(endpoint, {
         ...params,
         method: "PUT"
     })
 }
-export async function deleteData(endpoint, params) {
+export async function deleteData(endpoint, params = {}) {
     return queryData(endpoint, {
         ...params,
         method: "DELETE"
