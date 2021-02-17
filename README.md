@@ -37,3 +37,8 @@ The project is composed of 3 subfolders:
    Then run `npm run db:reset` to create the database tables.
 
    Finally, `npm start` will launch the server.
+
+The DB is prefilled with 2 users:
+A client with credentials t.malahieude@gmail.com / aaaaaa
+A farmer with credentials timothe@malahieude.net / aaaaaa
+Feel free to use those users to play with the app!
