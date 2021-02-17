@@ -16,6 +16,10 @@
       "files": 10
     }
   },
+  "authentication": {
+    "algorithm": "HS256",
+    "secret": "shhhhh"
+  },
   "server": {
     "port": 8000,
     "threads": 2

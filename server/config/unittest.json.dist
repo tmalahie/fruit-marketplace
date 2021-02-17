@@ -1,9 +1,9 @@
 {
   "db_host": "localhost",
   "db_name": "fruitmarketplace",
-  "db_user": "root",
-  "db_password": "",
-  "db_port": 3306,
+  "db_user": "postgres",
+  "db_password": "aaaaaa",
+  "db_port": 5432,
   "log": {
     "level": "debug",
     "console": {
@@ -15,6 +15,10 @@
       "size": 1048576,
       "files": 10
     }
+  },
+  "authentication": {
+    "algorithm": "HS256",
+    "secret": "shhhhh"
   },
   "server": {
     "port": 8000,
