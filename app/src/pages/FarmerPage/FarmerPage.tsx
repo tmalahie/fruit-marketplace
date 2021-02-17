@@ -9,7 +9,7 @@ import { Button } from '@material-ui/core';
 import { PERIOD } from "../MarketPlace/MarketPlace";
 
 function FarmerPage({ user }) {
-    let [currentOffers, setCurrentOffers] = useState(null);
+    let [currentOffers, setCurrentOffers] = useState(null) as any[];
     let [isEditting, setEditting] = useState(false);
 
     function startEditting() {

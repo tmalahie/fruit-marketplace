@@ -8,7 +8,7 @@ import OfferView from '../../components/OfferView/OfferView';
 export const PERIOD = "week1";
 
 function MarketPlace({ user }) {
-    let [currentOffers, setCurrentOffers] = useState(null);
+    let [currentOffers, setCurrentOffers] = useState(null) as any[];
     const [, updateState] = useState();
     const forceUpdate = useCallback(() => updateState({} as any), []);
 
