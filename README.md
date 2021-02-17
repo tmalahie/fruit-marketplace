@@ -3,12 +3,12 @@
 |--|--|--|
 | Front-end framework | React | It's a classic framework for handling single-page web application that are scalable, maintaiable and with many features |
 | Client Side routing | React Router | It's the recommanded way to do routing with React |
-| CSS framework | Material UI | It was recommended by several sites, it has many styling features and it well-integrated with React |
+| CSS framework | Material UI | It was recommended by several sites, it has many styling features and it's well-integrated with React |
 | Static type checking | TypeScript | It adds a lot of safety to the code, it reduces chances of runtime errors when launching to production |
-| Database | PostgreSQL | No need for a NoSQL database for such a basic feature. And PostgreSQL seams to be the best compromise between all SQL databases (in terms of performance & features) |
-| Server | Express.js | It's the framework of choice for building web APIs - popular, fast, easy to use |
+| Database | PostgreSQL | No need for a NoSQL database for such a basic product. And PostgreSQL seams to be the best compromise between all SQL databases (in terms of performance & features) |
+| Server | Express.js | It's the framework of choice for building web APIs - popular, fast, and easy to use |
 | Auth system | JWT | It's a standard way of handling tokens, it works great and is easy to implement (e.g no need to store anything on the server) |
-| DB interaction | knex.js | It's less heavy than an actual ORM (it's just a query builder) and still easy to use (you don't write SQL queries). I also implemented a kind of MVC folder structure |
+| DB interaction | knex.js | It's less heavy than an actual ORM (it's just a query builder) and still easy to use (you don't write SQL queries). I also implemented a kind of MVC folder structure on top of knex |
 
 ### Setup
 The project is composed of 3 subfolders:
