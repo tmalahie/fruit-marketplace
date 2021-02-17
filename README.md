@@ -13,14 +13,25 @@
 ### Setup
 The project is composed of 3 subfolders:
 - `python` which contains the Python script. This one doesn't need any perticular setup.
+
+
 - `app` which contains the frontend. To setup:
 If not yet done, install NPM and Node.js
+
 Then run `npm install`
+
 And `npm start`.
+
 This should compile the react application and launch a web browser with the app.
-- `server`, which contains the backend. This one is a bit more difficult setup:
-First install [PostgreSQL](https://www.postgresql.org/) on your machine and create a database with the name of your choice (let's assume it's named `fruit-marketplace`)
+
+
+- `server`, which contains the backend. This one is a bit more difficult to setup:
+
+First install [PostgreSQL](https://www.postgresql.org/) on your machine and create a database with the name of your choice
+
 Then go to folder `config` and copy file `development.json.dist` to `development.json`. Edit the database configuration.
+
 Now run `npm install`.
+
 Then run `npm run db:reset` to create the database tables.
 Finally, `npm start` will launch the server.
