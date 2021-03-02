@@ -19,7 +19,7 @@ const { sendData, sendCreated, sendDeleted, sendUpdated } = ResponseUtils(
 );
 
 async function getTotalPriceXrp(offer: Offer) {
-  const total_price_xrp = await exec(`python ../python/compute_xrp.py ${offer.fruit_unit_price_eur} ${offer.fruit_quantity}`);
+  const total_price_xrp = await exec(`python ./python/compute_xrp.py ${offer.fruit_unit_price_eur} ${offer.fruit_quantity}`);
   return +total_price_xrp.stdout;
 }
 

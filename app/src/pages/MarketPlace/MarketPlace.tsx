@@ -36,7 +36,7 @@ function MarketPlace({ user }) {
 
     return <div className="MarketPlace">
         <LoggedInUser user={user} />
-        <div>My current waller: {user.wallet_amount_xrp} XRP</div>
+        <div>My current wallet: {user.wallet_amount_xrp} XRP</div>
         {currentOffers && <>
             <br />
             <Typography variant="h4" className="title">
